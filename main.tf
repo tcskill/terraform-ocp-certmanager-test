@@ -1,5 +1,4 @@
 locals {
-  bin_dir = module.setup_clis.bin_dir
   tmp_dir = "${path.cwd}/.tmp"
 }
 
