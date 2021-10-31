@@ -1,6 +1,9 @@
+![Verify and release module](https://github.com/cloud-native-toolkit/terraform-ocp-certmanager/workflows/Verify%20and%20release%20module/badge.svg)
+
+
 #  Certificate Manager terraform module
 
-Deploys cert-manager
+Deploys cert-manager in RH OpenShift cluster.  This will create the namespace "cert-manager" automatically and install there.
 
 ## Supported platforms
 
@@ -12,7 +15,6 @@ The module uses the following elements
 
 ### Terraform providers
 
-- helm - used to configure the scc for OpenShift
 - null - used to run the shell scripts
 
 ### Environment
@@ -26,13 +28,19 @@ namespace to be created. The following companion
 modules can help provide the required information:
 
 - Cluster - https://github.com/ibm-garage-cloud/terraform-cluster-ibmcloud
-- Namespace - https://github.com/ibm-garage-cloud/terraform-cluster-namespace
 
 ## Example usage
 
 ```hcl-terraform
 module "dev_ocp_certmgr" {
 
+  source = "github.com/cloud-native-toolkit/terraform-ocp-certmanager"
+
+  cluster_config_file      = module.cluster.config_file_path
+  cluster_type             = module.cluster.platform.type_code
+  cluster_ingress_hostname = module.cluster.platform.ingress
+  tls_secret_name          = module.cluster.platform.tls_secret
+  
 }
 ```
 
