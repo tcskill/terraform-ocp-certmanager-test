@@ -1,11 +1,8 @@
-name: MAS
+name: CertManager
 type: terraform
-description: Module to install MAS
+description: Module to install CertManager
 tags:
     - tools
-    - devops
-    - quality gate
-    - lint
 versions:
 - platforms:
     - ocp4
