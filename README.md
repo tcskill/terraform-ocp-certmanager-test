@@ -3,7 +3,7 @@
 
 #  Certificate Manager terraform module
 
-Deploys cert-manager in RH OpenShift cluster.  This will create the namespace "cert-manager" automatically and install there.
+Deploys Jetstack cert-manager in RH OpenShift cluster.  This will create the namespace "cert-manager" automatically and install there.
 
 ## Supported platforms
 
